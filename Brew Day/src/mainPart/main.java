@@ -1,6 +1,7 @@
 package mainPart;
 import com.dataBase.*;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import com.exception.LargerThanEquip;
@@ -12,8 +13,8 @@ public class main {
 		//Recipe blackBeer = new Recipe("black beer",500,"ml");
 		//Recipe whiteBeer = new Recipe("white beer",300,"ml");
 		//DataBase.addRecipe(whiteBeer);
-		Recipe blackBeer = DataBase.getRecipe("black beer");
-		System.out.println(blackBeer.getQuantity());
+		Recipe Tim = DataBase.getRecipe("Tim");
+		System.out.println(Tim.getQuantity());
 //		blackBeer.setQuantity(300);
 		
 		//System.out.println(blackBeer.getIngredients());
@@ -25,8 +26,17 @@ public class main {
 		//blackBeer.addIngredient(malts.getIngredientName(), malts);
 		
 		StorageIngredient malts1 = new StorageIngredient("malts",10,"kg");
-		DataBase.updateStorageIngredient(malts1);
 		
+		Note n = new Note("Good Record");
+		
+		Equipment e = new Equipment(100,"ml" );
+		
+		try {
+			System.out.println(DataBase.getAllStorageIngredient());
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 //		// Add ingredient to recipe
 //		blackBeer.addIngredient(malts.getIngredientName(), malts);

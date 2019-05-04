@@ -5,7 +5,7 @@ public class StorageIngredient extends Ingredient {
 	
 	private Map<Brew, String> consumeBrew;
 	
-	public StorageIngredient(String ingredientName, int amount, String unit) {
+	public StorageIngredient(String ingredientName, double amount, String unit) {
 		super(ingredientName, amount, unit);
 	}
 	

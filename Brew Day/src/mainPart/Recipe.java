@@ -20,7 +20,7 @@ public class Recipe implements Serializable {
 	
 	
 	// Constructor of the recipe
-	public Recipe(String rName, int rQuantity, String rUnit) {
+	public Recipe(String rName, double rQuantity, String rUnit) {
 		this.recipeName=rName;
 		this.quantity=rQuantity;
 		this.unit=rUnit;
@@ -48,7 +48,6 @@ public class Recipe implements Serializable {
 		}
 	}
 	
-	
 	// Adding the ingredient for the recipe
 	public void addIngredient(String ingredientNames, RecipeIngredient ingredientOfRecipe) {
 		// If the ingredient of the recipe is null
@@ -59,18 +58,19 @@ public class Recipe implements Serializable {
 		else if(!ingredients.containsKey(ingredientNames)) {
 			ingredients.put(ingredientNames,ingredientOfRecipe);
 			ingredientOfRecipe.addRecipe(ingredientNames,this);
-			DataBase.addRecipeIngredient(this,ingredientOfRecipe,ingredients);
+			DataBase.addRecipeIngredient(this,ingredientOfRecipe);
 		}
 		else {
 			System.out.println("Unable to add the ingredient");
 		}
 	}
 	
-	
+	// Change the ingredient in recipe
 	public void setIngredients(Map<String, RecipeIngredient> ingredients) {
 		this.ingredients = ingredients;
 	}
 
+	// Convert a value for recipe
 	@SuppressWarnings("unlikely-arg-type")
 	// Only able to do the convert for 'ml', 'l' for recipe and 'kg', 'g' for ingredient.
 	public Map convertValue(String recipeName,double convertAmount,String convertUnit, String ingredientUnit) {

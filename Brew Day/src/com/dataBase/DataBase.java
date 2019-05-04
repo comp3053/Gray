@@ -1,5 +1,7 @@
 package com.dataBase;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import mainPart.*;
@@ -39,7 +41,7 @@ public class DataBase {
 	}
 	
 	// Adding ingredient to recipe
-	public static void addRecipeIngredient(Recipe recipe,RecipeIngredient ingredientOfRecipe,Map<String, RecipeIngredient> ingredients) {
+	public static void addRecipeIngredient(Recipe recipe,RecipeIngredient ingredientOfRecipe) {
 		
 		String recipeName = recipe.getRecipeName();
 		String ingredientName = ingredientOfRecipe.getIngredientName();
@@ -146,10 +148,9 @@ public class DataBase {
 			e.printStackTrace();
 		}
 		return null;
- 
 	}
-
-	// Adding storage to database
+	
+	// Updating ingredient storage to database
 	public static int updateStorageIngredient(StorageIngredient storageIngredient) {
 		
 		String igredientName = storageIngredient.getIngredientName();
@@ -173,6 +174,67 @@ public class DataBase {
 		}
 		
 		return 0;
+	}
+
+	public static Map<String, StorageIngredient> getAllStorageIngredient() throws SQLException {
+		Map<String, StorageIngredient> AllStroageIngredient = new LinkedHashMap ();
+		Connection conn = DBConnection.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("select * from ingredient_storage");
+		// Get all information from ingredient_storage ingredient
+		while (rs.next()) {
+			String ingredientName = rs.getString("ingredient_name");
+			double ingredientAmount = rs.getDouble("ingredient_amount");
+			String ingredientUnit = rs.getString("ingredient_unit");
+			StorageIngredient s = new StorageIngredient(ingredientName,ingredientAmount,ingredientUnit);
+			AllStroageIngredient.put(ingredientName, s);
+		}
+		return AllStroageIngredient;
+	}
+	
+	// Check for whether the batch size fits the input
+	public static boolean checkBatchSize(double batchSize) throws SQLException {
+		
+		Connection conn = DBConnection.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("select capacity from equipment");
+
+		while (rs.next()) {//下一行
+			int capacity = rs.getInt("capacity");//获取id这一列
+			if(capacity>=batchSize)
+				return true;
+		}
+		return false;
+	}
+	
+	// Check the recipe with satisfied recipe capacity
+	public static ArrayList<String> calculateSatifiedRecipe(Map<String, StorageIngredient> AllStroageIngredient, double batchsize) throws SQLException, IOException, ClassNotFoundException {
+		Connection conn = DBConnection.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("select value from recipe");
+		ArrayList<String> recipeName = new ArrayList();
+		// Get all information from ingredient_storage ingredient
+		while (rs.next()) {
+			ObjectInputStream ois = new ObjectInputStream(
+			rs.getBinaryStream("value"));
+			Recipe recipe = (Recipe) ois.readObject();
+			if(recipeIngredientSatisfaction(recipe,AllStroageIngredient,batchsize)==true)
+				recipeName.add(recipe.getRecipeName());
+		}
+		return recipeName;
+	}
+	
+	public static boolean recipeIngredientSatisfaction(Recipe recipe, Map<String, StorageIngredient> AllStroageIngredient, double batchsize) {
+		Map<String,Double>recipeMap = recipe.convertValue(recipe.getRecipeName(), batchsize, "ml", "g");
+		
+		for(String key:recipeMap.keySet()) {
+			double storageValue = AllStroageIngredient.get(key).getAmount();
+			double recipeValue = recipeMap.get(key);
+			if(recipeValue>storageValue) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }
