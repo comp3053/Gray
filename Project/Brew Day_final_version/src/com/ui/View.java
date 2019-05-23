@@ -1,9 +1,10 @@
 package com.ui;
+// import packages
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public abstract class View extends JFrame{
+public abstract class View extends JFrame{ // this clss extend JFrame
 
 	public View() {
 		// UI implementation

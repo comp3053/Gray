@@ -28,6 +28,8 @@ public class DeletingRecipeUI extends View{
 	private Recipe recipe;
 	ControllerDeletingRecipe controllerDR;
 	public DeletingRecipeUI() throws SQLException{
+        // UI setting
+        //set the title
 		this.setTitle("Delete a Recipe");
 		this.setSize(800, 600);
 		this.setLocation(200, 200);
@@ -43,7 +45,7 @@ public class DeletingRecipeUI extends View{
 		
 		this.setContentPane(contentPane);
 		
-		
+		//show the all recipes and their information
 		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER,30,5));
 		JLabel label=new JLabel("List of recipe:");
 		contentPane.add(label);
@@ -55,7 +57,7 @@ public class DeletingRecipeUI extends View{
 		contentPane.add(comboBox);
 		
 		Font f=new Font("ÂÞÂí",Font.BOLD,20);
-		
+		//set the button
 		JButton b1 = new JButton("Back");
 		JButton b2 = new JButton("Delete");
 		JLabel j1 = new JLabel();
@@ -70,10 +72,11 @@ public class DeletingRecipeUI extends View{
 		
 		// Store the name of recipe 
 		recipe = recipe.getRecipe(recipeList.get(0));
-		
+		//show the information for the Quantity
 		j1.setText("liter:"+recipe.getQuantity()+"ml");
 		Map<String, RecipeIngredient> ingredientList = recipe.getIngredients();
 		double i1=0;
+        //show the ingredients and their if exist.
 		if(ingredientList.containsKey("malts"))
 			i1 = ingredientList.get("malts").getAmount();
 		j2.setText("malts:"+i1+"g");
@@ -151,7 +154,7 @@ public class DeletingRecipeUI extends View{
 			}
 		});
 	
-		
+		//add the contents into the interface
 		contentPane.add(comboBox);
 		contentPane.add(b1);
 		contentPane.add(b2);
@@ -165,6 +168,7 @@ public class DeletingRecipeUI extends View{
 		this.setVisible(true);
 	}
     protected void closeThis() {
+        // TODO Auto-generated method stub
 		this.setVisible(false);
 		
 	}

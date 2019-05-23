@@ -1,5 +1,6 @@
 package com.ui;
 
+// import packages
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -23,14 +24,15 @@ import com.dataBase.DataBase;
 import mainPart.Recipe;
 import mainPart.RecipeIngredient;
  
-public class UpdatingRecipeUI extends View{
-	private Recipe recipe;
+ 
+public class UpdatingRecipeUI extends View{ // this clss extends View
+	private Recipe recipe; // recipe belongs Recipe class
 	public UpdatingRecipeUI() throws SQLException{
-		this.setTitle("View/Updating a Recipe");
-		this.setLocation(500, 200);
+		this.setTitle("View/Updating a Recipe"); // set the title 
+		this.setLocation(500, 200); // set the location 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setBounds(500,300,600,400);
-		JPanel contentPane=new JPanel();
+		this.setBounds(500,300,600,400); 
+		JPanel contentPane=new JPanel(); // a new JPanel 
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		this.setContentPane(contentPane);
 		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER,30,5));
@@ -39,13 +41,14 @@ public class UpdatingRecipeUI extends View{
 		JComboBox comboBox=new JComboBox();
 		recipe = new Recipe();
 		ArrayList<String> recipeList = recipe.getAllRecipeName();
-		for(int i=0;i<recipeList.size();i++) {
+		for(int i=0;i<recipeList.size();i++) { // when it's less then # of recipe
 			comboBox.addItem(recipeList.get(i));
 		}
 		contentPane.add(comboBox);
 		
-		Font f=new Font("ÂÞÂí",Font.BOLD,20);
+		Font f=new Font("ÂÞÂí",Font.BOLD,20); // font
 		
+		// add JButton and JLabel 
 		JButton b1 = new JButton("Back");
 		JButton b2 = new JButton("Continue");
 		JLabel j1 = new JLabel();
@@ -66,23 +69,23 @@ public class UpdatingRecipeUI extends View{
 		double i1=0;
 		if(ingredientList.containsKey("malts"))
 			i1 = ingredientList.get("malts").getAmount();
-		j2.setText("malts:"+i1+"g");
+		j2.setText("malts:"+i1+"g"); // malts
 		double i2=0;
 		if(ingredientList.containsKey("hops"))
 			i2 = ingredientList.get("hops").getAmount();
-		j3.setText("hops:"+i2+"g");
+		j3.setText("hops:"+i2+"g"); // hops
 		double i3=0;
 		if(ingredientList.containsKey("yeasts"))
 			i3 = ingredientList.get("yeasts").getAmount();
-		j4.setText("yeasts:"+i3+"g");
+		j4.setText("yeasts:"+i3+"g"); // yeasts
 		double i4=0;
 		if(ingredientList.containsKey("sugars"))
 			i4 = ingredientList.get("sugars").getAmount();
-		j5.setText( "sugars:"+i4+"g");
+		j5.setText( "sugars:"+i4+"g"); // sugar
 		double i5=0;
 		if(ingredientList.containsKey("additives"))
 			i5 = ingredientList.get("additives").getAmount();
-		j6.setText( "additives:"+i5+"g");
+		j6.setText( "additives:"+i5+"g"); // additives
 		
 		
 		
@@ -96,29 +99,29 @@ public class UpdatingRecipeUI extends View{
 				double i1=0;
 				if(ingredientList.containsKey("malts"))
 					i1 = ingredientList.get("malts").getAmount();
-				j2.setText("malts:"+i1+"g");
+				j2.setText("malts:"+i1+"g"); // malts
 				double i2=0;
 				if(ingredientList.containsKey("hops"))
 					i2 = ingredientList.get("hops").getAmount();
-				j3.setText("hops:"+i2+"g");
+				j3.setText("hops:"+i2+"g"); // hops
 				double i3=0;
 				if(ingredientList.containsKey("yeasts"))
 					i3 = ingredientList.get("yeasts").getAmount();
-				j4.setText("yeasts:"+i3+"g");
+				j4.setText("yeasts:"+i3+"g"); // yeasts
 				double i4=0;
 				if(ingredientList.containsKey("sugars"))
 					i4 = ingredientList.get("sugars").getAmount();
-				j5.setText( "sugars:"+i4+"g");
+				j5.setText( "sugars:"+i4+"g"); // sugars
 				double i5=0;
 				if(ingredientList.containsKey("additives"))
 					i5 = ingredientList.get("additives").getAmount();
-				j6.setText( "additives:"+i5+"g");
+				j6.setText( "additives:"+i5+"g"); // additives
 			}
 		});
 		
 		
 		// Cancel
-		b1.addActionListener(new ActionListener() {	
+		b1.addActionListener(new ActionListener() {	 // add the action listener 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
@@ -126,7 +129,7 @@ public class UpdatingRecipeUI extends View{
 			}
 		});
 		// Continue
-		b2.addActionListener(new ActionListener() {	
+		b2.addActionListener(new ActionListener() {	// add the action listener 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
@@ -134,10 +137,11 @@ public class UpdatingRecipeUI extends View{
 				new UpdatingRecipeModificationUI((String) comboBox.getSelectedItem());
 			}
 		});
-		
+		// add buttons to contentPane
 		contentPane.add(b1);
 		contentPane.add(b2);
 		
+		// add JLabel to contentPane
 		contentPane.add(j1);
 		contentPane.add(j2);
 		contentPane.add(j3);
@@ -145,10 +149,10 @@ public class UpdatingRecipeUI extends View{
 		contentPane.add(j5);
 		contentPane.add(j6);
 		
-		this.setVisible(true);
+		this.setVisible(true); // set to visible
 	}
     protected void closeThis() {
-		this.setVisible(false);
+		this.setVisible(false); // set to visible
 		
 	}
 

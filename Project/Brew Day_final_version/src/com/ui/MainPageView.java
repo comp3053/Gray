@@ -25,8 +25,9 @@ import java.awt.Font;
 import java.awt.GridLayout;
 
 public class MainPageView extends View {
-
+     // UI setting
 	public MainPageView() {
+        //set the title
 		this.setTitle("MainPageUI");
 		this.setSize(800, 600);
 		this.setLocation(500, 200);
@@ -37,11 +38,11 @@ public class MainPageView extends View {
 		p.setBackground(Color.WHITE);
 		this.add(p); // Add panel to the frame.
 		// Layout manager for the panel.
-		// 2 rows, 2 columns, 20 pixels hgap, 10 pixels vgap.
 		p.setLayout(new GridLayout(6, 1, 200, 30));
 		// Create four buttons and add them to the panel (not the frame).
 		// The four buttons always stay together even when you resize.
 		Font f=new Font("ÂÞÂí",Font.BOLD,20);
+        //create the buttons
 		JButton b1 = new JButton("Maintain recipe");
 		b1.setPreferredSize(new Dimension(100,50));
 		JButton b2 = new JButton("Maintain ingredient" );
@@ -52,15 +53,13 @@ public class MainPageView extends View {
 		b1.setFont(f);b2.setFont(f);b3.setFont(f);b4.setFont(f);b5.setFont(f);b6.setFont(f);
 		p.add(b1);p.add(b2);p.add(b3);p.add(b4);p.add(b5);p.add(b6);
 
-		/////////////////////////////
 		JLabel label = new JLabel(new ImageIcon("1.jpg"));
 		LineBorder lb = new LineBorder(Color.BLACK, 5, true); 
 		p.setBorder(BorderFactory.createTitledBorder(lb, "Brew Day", TitledBorder.CENTER, TitledBorder.TOP,
 				new java.awt.Font("ËÎÌå",Font.HANGING_BASELINE,60)));
-		/////////////////////////////
 
-
-		b1.addActionListener(new ActionListener() {	
+		b1.addActionListener(new ActionListener() {
+            //jump into MaintainRecipeUI
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
@@ -68,7 +67,8 @@ public class MainPageView extends View {
 			}
 		});
 
-		b2.addActionListener(new ActionListener() {	
+		b2.addActionListener(new ActionListener() {
+            //jump into MaintainIngredientUI
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
@@ -76,8 +76,8 @@ public class MainPageView extends View {
 			}
 		});
 
-
-		b3.addActionListener(new ActionListener() {	
+		b3.addActionListener(new ActionListener() {
+            //jump into MaintainEquipmentInformationPageUI
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
@@ -85,8 +85,8 @@ public class MainPageView extends View {
 			}
 		});
 
-
-		b4.addActionListener(new ActionListener() {	
+		b4.addActionListener(new ActionListener() {
+            //jump into WriteNotePageUI
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
@@ -95,7 +95,8 @@ public class MainPageView extends View {
 		});
 
 
-		b5.addActionListener(new ActionListener() {	
+		b5.addActionListener(new ActionListener() {
+            //jump into InputUI
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
@@ -110,11 +111,11 @@ public class MainPageView extends View {
 			}
 		});
 
-
 		this.setVisible(true);
 	}
 
 	protected void closeThis() {
+        // TODO Auto-generated method stub
 		this.setVisible(false);
 	}
 }

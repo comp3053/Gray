@@ -33,11 +33,10 @@ public class MaintainIngredientUI extends View {
 		p.setBackground(Color.WHITE);
 		this.add(p); // Add panel to the frame.
 		// Layout manager for the panel.
-		// 2 rows, 2 columns, 20 pixels hgap, 10 pixels vgap.
 		p.setLayout(new GridLayout(3, 1, 20, 30));
 		// Create four buttons and add them to the panel (not the frame).
 		Font f=new Font("ÂÞÂí",Font.BOLD,20);
-		// The four buttons always stay together even when you resize.
+		// The buttons always stay together even when you resize.
 		JButton j1 = new JButton("Add amount of Existing Ingredient");
 		JButton j2 = new JButton("Subtract amount of Existing Ingredient" );
 		JButton j3 = new JButton("Back to the Home Page");
@@ -45,6 +44,7 @@ public class MaintainIngredientUI extends View {
 		j1.setFont(f);j2.setFont(f);j3.setFont(f);
 		p.add(j1);p.add(j2);p.add(j3);
 		
+        //jump to AddIngredient
 		j1.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -56,11 +56,10 @@ public class MaintainIngredientUI extends View {
 					e1.printStackTrace();
 				}
 			}
-
 		});
 		
 		
-		
+		//jump to SubstractIngredient
 		j2.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -72,16 +71,14 @@ public class MaintainIngredientUI extends View {
 					e1.printStackTrace();
 				}
 			}
-
 		});
-		
+		//jump to MainPageView
 		j3.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
 				new MainPageView();
 			}
-
 		});
 
 		this.setVisible(true);
@@ -89,6 +86,7 @@ public class MaintainIngredientUI extends View {
 	}
 
 	protected void closeThis() {
+        // TODO Auto-generated method stub
 		this.setVisible(false);
 	}
 }

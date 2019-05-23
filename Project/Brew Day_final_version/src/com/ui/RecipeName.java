@@ -1,4 +1,5 @@
 package com.ui;
+// import packages
 import mainPart.*;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -25,29 +26,29 @@ import javax.swing.UnsupportedLookAndFeelException;
 import com.dataBase.DataBase;
 
 
-public class RecipeName extends View {
+public class RecipeName extends View { // this class extends View
 	private ControllerForBrewRecipe controllerFBR;
 	private Recipe recipe;
 	public RecipeName(String recipeName, double batchSize) {
-		this.setTitle("Recommend Recipe Ingredient");
-		this.setSize(800, 600);
-		this.setLocation(500, 200);
+		this.setTitle("Recommend Recipe Ingredient"); //set title
+		this.setSize(800, 600); // set size
+		this.setLocation(500, 200); // set location
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new FlowLayout()); // Layout manager for the frame
 		
 		JPanel p = new JPanel();
 		JPanel bittonP = new JPanel();
-		Font f1=new Font("ÂÞÂí",Font.BOLD,20);
+		Font f1=new Font("ÂÞÂí",Font.BOLD,20); // font
 		JLabel j1 = new JLabel("Recipe name ");
 		j1.setFont(f1);
 		p.add(j1);
 		// Layout manager for the panel.
 		// 2 rows, 2 columns, 20 pixels hgap, 10 pixels vgap.
-		p.setLayout(new FlowLayout());
+		p.setLayout(new FlowLayout()); // set layout
 		p.setLayout(new GridLayout(6, 1, 30,20));
 	
-		recipe = new Recipe();
-		recipe = recipe.getRecipe(recipeName);
+		recipe = new Recipe(); // recipe
+		recipe = recipe.getRecipe(recipeName); // get the recipe
 		Map<String,Double>recipeList = recipe.convertValue(recipeName, batchSize, "ml", "g");
 		JLabel jj1 = new JLabel(recipeName+":");
 		jj1.setFont(f1);
@@ -62,19 +63,19 @@ public class RecipeName extends View {
 		this.add(p); // Add panel to the frame.
 		
 		JButton b1 = new JButton("Back");
-		b1.setFont(f1);
+		b1.setFont(f1); // set font of button1
 		JButton b2 = new JButton("Brew");
-		b2.setFont(f1);
-		bittonP.add(b1);
-		bittonP.add(b2);
+		b2.setFont(f1); // set font of button2
+		bittonP.add(b1); // add button1
+		bittonP.add(b2); // add button2
 		p.add(bittonP);
 		
-		b1.addActionListener(new ActionListener() {	
+		b1.addActionListener(new ActionListener() {	// add action listener
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { // add action event
 				closeThis();
 				try {
-					new RecommendRecipe(batchSize);
+					new RecommendRecipe(batchSize); 
 				} catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -89,10 +90,10 @@ public class RecipeName extends View {
 		});
 		
 		
-		b2.addActionListener(new ActionListener() {	
+		b2.addActionListener(new ActionListener() {	// add action listener
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				controllerFBR = new ControllerForBrewRecipe();
+			public void actionPerformed(ActionEvent e) { // add action event
+				controllerFBR = new ControllerForBrewRecipe(); // controller
 				controllerFBR.conForBrewRecipe(recipeName, batchSize,"ml","g");
 				JOptionPane.showMessageDialog(null, "Successfully brewing!", "Brewing recipe",JOptionPane.INFORMATION_MESSAGE); 
 				int result = JOptionPane.showConfirmDialog(null, "Do you want to wirte note for this brew?",    "Write note decision", JOptionPane.YES_NO_OPTION); 
@@ -107,22 +108,22 @@ public class RecipeName extends View {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					closeThis();
+					closeThis(); // c;ose
 				}
 				else {
-					closeThis();
+					closeThis(); // close
 					new InputUI();
 				}
 			}
 		});
 		
 		
-		this.setVisible(true);
+		this.setVisible(true);// set to visible
 		
 	
 	}
 	protected void closeThis() {
-		this.setVisible(false);
+		this.setVisible(false); // close
 	}
 	
 }

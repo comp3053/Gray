@@ -26,8 +26,10 @@ import com.dataBase.DataBase;
 import mainPart.Equipment;
 
 public class InputUI extends View {
+    // UI setting
 	private Equipment equip;
 	public InputUI() {
+        //set the title
 		this.setTitle("InputUI");
 		this.setSize(800, 600);
 		this.setLocation(500, 200);
@@ -38,7 +40,6 @@ public class InputUI extends View {
 		p.setBackground(Color.WHITE);
 
 		// Layout manager for the panel.
-		// 2 rows, 2 columns, 20 pixels hgap, 10 pixels vgap.
 		p.setLayout(new GridLayout(5, 1, 20, 10));
 		// Create four buttons and add them to the panel (not the frame).
 		// The four buttons always stay together even when you resize.
@@ -50,6 +51,7 @@ public class InputUI extends View {
 		//p.add(ta);
 		p.add(recipeSelectionText);
 		this.add(p); // Add panel to the frame.
+        //creat buttons
 		JButton b1 =new JButton("Recommemd");
 		JButton b2 =new JButton("Recommend with missing ingredient" );
 		JButton b3 =new JButton("Cancel");
@@ -58,7 +60,7 @@ public class InputUI extends View {
 		recipeSelectionText.setFont(f);
 		b1.setPreferredSize(new Dimension(100,50));
 		b1.setFont(f);b2.setFont(f);b3.setFont(f);jj.setFont(f);
-		
+		//add buttons into JPanel
 		p.add(b1);
 		p.add(b2);
 		p.add(b3);
@@ -180,6 +182,7 @@ public class InputUI extends View {
 
 	}
 	protected void closeThis() {
+        // TODO Auto-generated method stub
 		this.setVisible(false);
 	}
 

@@ -26,30 +26,37 @@ public class AddingRecipeUI extends View{
 		// Font setting
 		Font f=new Font("罗马",Font.BOLD,20);
 		// Recipe information set
+        // we can input recipe name here
 		JLabel recipeName = new JLabel("Name of Recipe:");
 		JTextField recipeNameText = new JTextField();
 		recipeName.setFont(f);
-		
+        
+        // we can input liter here
 		JLabel location = new JLabel("Liter of beer(ml):");
 		JTextField locationText = new JTextField();
 		location.setFont(f);
-
+        
+        // we can input amount of Malts here
 		JLabel type = new JLabel("Malts(g):");
 		JTextField maltText = new JTextField();
 		type.setFont(f);
-
+        
+        // we can input amount of Hops here
 		JLabel name = new JLabel("Hops(g):");
 		JTextField hopText = new JTextField();
 		name.setFont(f);
-
+        
+        // we can input amount of Yeasts here
 		JLabel bossname = new JLabel("Yeasts(g):");
 		JTextField yeastText = new JTextField();
 		bossname.setFont(f);
 
+        // we can input amount of Sugars here
 		JLabel money = new JLabel("Sugars(g):");
 		JTextField sugarText = new JTextField();
 		money.setFont(f);
 
+        // we can input amount of Additives here
 		JLabel product = new JLabel("Additives(g):");
 		JTextField additiveText = new JTextField();
 		product.setFont(f);
@@ -117,7 +124,7 @@ public class AddingRecipeUI extends View{
 				new MaintainRecipeUI();
 			}
 		});
-
+        // add the contents into interface.
 		pInput.add(recipeName);
 		pInput.add(recipeNameText);
 		pInput.add(location);

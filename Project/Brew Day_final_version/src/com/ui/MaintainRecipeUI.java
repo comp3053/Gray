@@ -20,6 +20,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 public class MaintainRecipeUI extends View{
 	public MaintainRecipeUI() {
+        //set ui
+        //set the title
 		this.setTitle("MainPageUI");
 		this.setSize(800, 600);
 		this.setLocation(500, 200);
@@ -30,11 +32,11 @@ public class MaintainRecipeUI extends View{
 		p.setBackground(Color.WHITE);
 		this.add(p); // Add panel to the frame.
 		// Layout manager for the panel.
-		// 2 rows, 2 columns, 20 pixels hgap, 10 pixels vgap.
 		p.setLayout(new GridLayout(4, 1, 30, 30));
 		// Create four buttons and add them to the panel (not the frame).
 		// The four buttons always stay together even when you resize.
 		Font f=new Font("ÂÞÂí",Font.BOLD,20);
+        //create the buttons
 		JButton j1 = new JButton("Add Recipe");
 		j1.setPreferredSize(new Dimension(100,50));
 		JButton j2 = new JButton("View/Update Recipe");
@@ -45,6 +47,7 @@ public class MaintainRecipeUI extends View{
 		p.add(j3);
 		p.add(j4);
 		j1.setFont(f);j2.setFont(f);j3.setFont(f);j4.setFont(f);
+        //jump to the AddingRecipeUI
 		j1.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -52,7 +55,7 @@ public class MaintainRecipeUI extends View{
 				new AddingRecipeUI();
 			}
 		});
-		
+		//jump to the UpdatingRecipeUI
 		j2.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -65,7 +68,7 @@ public class MaintainRecipeUI extends View{
 				}
 			}
 		});
-		
+		//jump to the DeletingRecipeUI
 		j3.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -78,7 +81,7 @@ public class MaintainRecipeUI extends View{
 				}
 			}
 		});
-		
+		//jump to the MainPageView
 		j4.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -90,6 +93,7 @@ public class MaintainRecipeUI extends View{
 		this.setVisible(true);
 	}
 	protected void closeThis() {
+        // TODO Auto-generated method stub
 		this.setVisible(false);
 	}
 }

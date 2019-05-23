@@ -1,5 +1,6 @@
 package com.ui;
 
+// import packages
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -51,16 +52,16 @@ import javax.swing.JTextField;
 
 
 
-public class UpdateIngredientUI extends View {
+public class UpdateIngredientUI extends View { // this class extends from View
 
 	public UpdateIngredientUI() {
-	this.setTitle("AddIngredientUI");
-	this.setSize(800, 600);
+	this.setTitle("AddIngredientUI"); // set title
+	this.setSize(800, 600); // set size
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setLayout(new FlowLayout()); // Layout manager for the frame
 	
-	JPanel p = new JPanel();
-	p.setBackground(Color.WHITE);
+	JPanel p = new JPanel(); // create a new JPanel
+	p.setBackground(Color.WHITE); // background color
 	this.add(new JLabel("Update ingredient:"));
 	this.add(p); // Add panel to the frame.
 
@@ -71,7 +72,7 @@ public class UpdateIngredientUI extends View {
 	
 	
 	JLabel malts = new JLabel("Malts:       200gram");
-	JTextField text1 = new JTextField();
+	JTextField text1 = new JTextField(); // JTextField
 	JTextField text2 = new JTextField();
 	JTextField text3 = new JTextField();
 	JTextField text4 = new JTextField();
@@ -81,7 +82,7 @@ public class UpdateIngredientUI extends View {
 	JTextField text8 = new JTextField();
 	JTextField text9 = new JTextField();
 	JTextField text10 = new JTextField();
-	JLabel gram1 = new JLabel("gram");
+	JLabel gram1 = new JLabel("gram"); // JLabel
 	JLabel gram2 = new JLabel("gram");
 	JLabel gram3 = new JLabel("gram");
 	JLabel gram4 = new JLabel("gram");
@@ -94,63 +95,63 @@ public class UpdateIngredientUI extends View {
 	
 	
 	
-	JLabel hops = new JLabel("Hops:       200gram");
+	JLabel hops = new JLabel("Hops:       200gram"); // JLabel: hops
 	
-	JLabel yeasts = new JLabel("Yeasts:       200gram");
+	JLabel yeasts = new JLabel("Yeasts:       200gram"); // JLabel: yeasts
 	
-	JLabel suger = new JLabel("Surger:       200gram");
+	JLabel suger = new JLabel("Surger:       200gram"); // JLabel: suger
 	
-	JLabel additives = new JLabel("Additives:       200gram");
-	
-	
-	JLabel current = new JLabel("Current value");
-	JLabel add = new JLabel("Add");
-	JLabel minus = new JLabel("Minus");
-	JLabel space1 = new JLabel(" ");
-	JLabel space2 = new JLabel(" ");
+	JLabel additives = new JLabel("Additives:       200gram"); // JLabel: additives
 	
 	
-	p.add(current);
-	p.add(add);
-	p.add(space1);
-	p.add(minus);
-	p.add(space2);
+	JLabel current = new JLabel("Current value"); // JLabel: Current value
+	JLabel add = new JLabel("Add"); // JLabel: add
+	JLabel minus = new JLabel("Minus"); // JLabel: minus
+	JLabel space1 = new JLabel(" "); // JLabel: space
+	JLabel space2 = new JLabel(" "); // JLabel: space
 	
 	
-	p.add(malts);
-	p.add(text1);
-	p.add(gram1);
-	p.add(text2);
-	p.add(gram2);	
-	
-	p.add(hops);	
-	p.add(text3);
-	p.add(gram3);
-	p.add(text4);
-	p.add(gram4);
-	
-	p.add(yeasts);	
-	p.add(text5);
-	p.add(gram5);
-	p.add(text6);
-	p.add(gram6);	
+	p.add(current); // add to JPanel: current
+	p.add(add); // add to JPanel: add
+	p.add(space1); // add to JPanel: space1
+	p.add(minus); // add to JPanel: minus
+	p.add(space2); // add to JPanel: space2
 	
 	
-	p.add(suger);	
-	p.add(text7);
-	p.add(gram7);
-	p.add(text8);
-	p.add(gram8);	
+	p.add(malts); // add to JPanel: malts
+	p.add(text1); // add to JPanel: text1
+	p.add(gram1); // add to JPanel: gram1
+	p.add(text2); // add to JPanel: text2
+	p.add(gram2); // add to JPanel: gram2	
+	
+	p.add(hops); // add to JPanel: hops
+	p.add(text3); // add to JPanel: text3
+	p.add(gram3); // add to JPanel: gram3
+	p.add(text4); // add to JPanel: text4
+	p.add(gram4); // add to JPanel: gram4
+	
+	p.add(yeasts); // add to JPanel: yeats
+	p.add(text5); // add to JPanel: text5
+	p.add(gram5); // add to JPanel: gramm5
+	p.add(text6); // add to JPanel: text6
+	p.add(gram6); // add to JPanel: gram6	
 	
 	
-	p.add(additives);	
-	p.add(text9);
-	p.add(gram9);
-	p.add(text10);
-	p.add(gram10);	
+	p.add(suger); // add to JPanel: sugar
+	p.add(text7); // add to JPanel: text7
+	p.add(gram7); // add to JPanel: gram7
+	p.add(text8);// add to JPanel: text8
+	p.add(gram8);// add to JPanel: gram8	
 	
-	this.add(new JButton("Update"));
-	this.add(new JButton("Cancel" ));
+	
+	p.add(additives);	// add to JPanel: additives
+	p.add(text9); // add to JPanel: text9
+	p.add(gram9); // add to JPanel: gram9
+	p.add(text10);// add to JPanel: text10
+	p.add(gram10);// add to JPanel: gram10
+	
+	this.add(new JButton("Update")); // add button 1
+	this.add(new JButton("Cancel" )); // add button 2
 	
 	this.setVisible(true);
 	

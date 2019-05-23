@@ -1,5 +1,5 @@
 package com.ui;
-import com.controller.*;
+import com.controller.*; // import packages
 
 // This class is for open the main page
 public class Test {

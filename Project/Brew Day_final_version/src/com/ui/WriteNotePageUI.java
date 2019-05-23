@@ -1,6 +1,6 @@
 package com.ui;
 
-
+// import packages
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -38,10 +38,10 @@ public class WriteNotePageUI extends View{
 		// Create four buttons and add them to the panel (not the frame).
 		// The four buttons always stay together even when you resize.
 	
-		JButton b1 = new JButton("Add New Note");
-		JButton b2 = new JButton("View/Modify Note");
-		JButton b3 = new JButton("Back Home Page");
-		Font f=new Font("ÂÞÂí",Font.BOLD,20);
+		JButton b1 = new JButton("Add New Note"); // button 1
+		JButton b2 = new JButton("View/Modify Note"); // button 2
+		JButton b3 = new JButton("Back Home Page"); // button 3
+		Font f=new Font("ÂÞÂí",Font.BOLD,20); // font 
 		b1.setPreferredSize(new Dimension(100,50));
 		b1.setFont(f);b2.setFont(f);b3.setFont(f);
 		
@@ -49,7 +49,7 @@ public class WriteNotePageUI extends View{
 		p.add(b2);
 		p.add(b3);
 		
-		b1.addActionListener(new ActionListener() {	
+		b1.addActionListener(new ActionListener() {	 // add the action listener of button1
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
@@ -66,7 +66,7 @@ public class WriteNotePageUI extends View{
 		});
 		
 		
-		b2.addActionListener(new ActionListener() {	
+		b2.addActionListener(new ActionListener() {	// add the action listener of button2
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
@@ -75,7 +75,7 @@ public class WriteNotePageUI extends View{
 		});
 		
 
-		b3.addActionListener(new ActionListener() {	
+		b3.addActionListener(new ActionListener() {	// add the action listener of button3
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
@@ -85,12 +85,12 @@ public class WriteNotePageUI extends View{
 		
 		
 		
-		this.setVisible(true);
+		this.setVisible(true); // set to visible
 
 	}
 	
 	protected void closeThis() {
-		this.setVisible(false);
+		this.setVisible(false); 
 	}
 	
 	
